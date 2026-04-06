@@ -35,31 +35,12 @@ if errorlevel 1 goto :fail
 
 echo.
 echo Verifying desktop + NiceGUI dependencies...
-call %PYTHON_CMD% -c "import PIL, PySide6, numpy, cv2, rawpy, pillow_heif, nicegui; print('Base dependencies verified')"
+call %PYTHON_CMD% -c "import PIL, PySide6, numpy, rawpy, pillow_heif, nicegui; print('Base dependencies verified')"
 if errorlevel 1 goto :fail
 
 echo.
-choice /M "Install or update NVIDIA GPU support (CuPy + CUDA runtime + NVRTC)"
-if errorlevel 2 goto :postgpu
-
-echo.
-echo Installing / updating GPU dependencies...
-call %PYTHON_CMD% -m pip install --upgrade -r requirements-gpu.txt
-if errorlevel 1 goto :fail
-
-echo.
-echo Verifying GPU Python packages...
-call %PYTHON_CMD% -c "import cupy; import cuda; print('GPU Python packages verified')"
-if errorlevel 1 goto :fail
-
-echo.
-echo GPU packages installed.
-echo If GPU acceleration is still unavailable, restart the terminal and app once.
-echo.
-
-:postgpu
 echo Running quick syntax verification...
-call %PYTHON_CMD% -m py_compile ImageConvertPro.py ImageConvertPro_nicegui.py
+call %PYTHON_CMD% -m py_compile ImageConvertPro.py ImageConvertPro_nicegui.py companion_bridge.py
 if errorlevel 1 goto :fail
 
 echo.
