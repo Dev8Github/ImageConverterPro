@@ -1,0 +1,10 @@
+# Core desktop app
+Pillow>=11.0.0
+PySide6>=6.8.0
+numpy>=2.2.0
+opencv-python>=4.10.0
+rawpy>=0.24.0
+pillow-heif>=0.21.0
+
+# Separate NiceGUI edition
+nicegui>=2.0.0

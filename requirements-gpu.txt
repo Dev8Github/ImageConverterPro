@@ -1,0 +1,5 @@
+# Optional NVIDIA GPU stack for CuPy acceleration
+cupy-cuda12x>=13.6.0
+cuda-python>=12.9.0
+nvidia-cuda-runtime-cu12>=12.9.79
+nvidia-cuda-nvrtc-cu12>=12.9.86
